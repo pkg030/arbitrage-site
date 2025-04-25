@@ -24,3 +24,8 @@ def get_arbitrage():
     arbs = find_arbitrage(all_odds)
     return {"arbitrage": arbs}
 
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def read_root():
+    return "<h1>Welcome to the Arbitrage Finder API</h1><p>Use <code>/arbitrage</code> to find opportunities.</p>"
